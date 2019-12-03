@@ -2,8 +2,25 @@ body {
     background-color: gainsboro;
 }
 
-#container {
-    background-color: gray;
+.container {
     width: 600px;
     margin: 0 auto;
+}
+
+.layer {
+    margin-top: 50px;
+    margin-bottom: 50px;
+}
+.header {
+    background-color: lightslategrey;
+    padding: 10px;
+}
+.content {
+    background-color: lightslategrey;
+    padding: 10px;
+}
+.footer {
+    background-color: lightslategrey;
+    padding: 10px;
+    text-align: center;
 }
