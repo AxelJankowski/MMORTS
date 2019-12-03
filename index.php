@@ -18,11 +18,15 @@
 
                 <body>
                     <div id="container">
-                        <div>header</div>
                         <div>
-                            <p>Whatup</p>
+                            header
                         </div>
-                        <div>footer</div>
+                        <div>
+                            content
+                        </div>
+                        <div>
+                            footer
+                        </div>
                     </div>
                 </body>
             </html>
