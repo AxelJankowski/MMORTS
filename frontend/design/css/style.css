@@ -1,0 +1,9 @@
+body {
+    background-color: gainsboro;
+}
+
+#container {
+    background-color: gray;
+    width: 600px;
+    margin: 0 auto;
+}
