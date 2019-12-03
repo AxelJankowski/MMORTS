@@ -3,7 +3,7 @@ body {
 }
 
 .container {
-    width: 600px;
+    width: 1200px;
     margin: 0 auto;
 }
 
@@ -14,6 +14,15 @@ body {
 .header {
     background-color: lightslategrey;
     padding: 10px;
+    overflow: hidden;
+}
+.logo {
+    float: left;
+    width: 50px;
+}
+.title {
+    float: left;
+    margin-left: 15px;
 }
 .content {
     background-color: lightslategrey;
@@ -23,4 +32,9 @@ body {
     background-color: lightslategrey;
     padding: 10px;
     text-align: center;
+}
+
+.responsive {
+    width: 100%;
+    height: auto;
 }

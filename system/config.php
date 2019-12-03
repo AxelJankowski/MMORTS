@@ -21,6 +21,7 @@
         $title = $row['name'];
         $separator = $row['separator'];
         $description = $row['description'];
+        $logo = $row['logo'];
 
         //technical settings
         $maintenance = $row['maintenance'];
