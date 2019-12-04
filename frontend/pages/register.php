@@ -22,7 +22,7 @@
             <div class="layer">
                 <div class="content">
                     <h2>Register</h2>
-                    <form role="form" action="backend/account/registration.php" method="POST">
+                    <form role="form" action="backend/account/register-handle.php" method="POST">
                         <div class="form-group">
                             <label for="username">Username:</label>
                             <input type="username" class="form-control" name="username">

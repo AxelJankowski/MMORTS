@@ -22,9 +22,17 @@
             <div class="layer">
                 <div class="content">
                     <h2>Login</h2>
-                    <p>This is the login page.</p>
-                    <a href="index.php?page=index">Main</a>
-                    <a href="index.php?page=contact">Contact</a>
+                    <form role="form" action="backend/account/login-handle.php" method="POST">
+                        <div class="form-group">
+                            <label for="username">Username:</label>
+                            <input type="username" class="form-control" name="username">
+                        </div>
+                        <div class="form-group">
+                            <label for="password">Password:</label>
+                            <input type="password" class="form-control" name="password">
+                        </div>
+                        <button type="submit" class="btn btn-default">Submit</button>
+                    </form>
                 </div>
             </div>
             <?php require_once("frontend/templates/footer.php"); ?>

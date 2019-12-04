@@ -1,6 +1,15 @@
 body {
     background-color: gainsboro;
 }
+*:link {
+    color: black;
+}
+*:hover {
+    color: black;
+}
+*:visited {
+    color: black;
+}
 
 .container {
     width: 1200px;

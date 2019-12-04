@@ -10,6 +10,9 @@
                 require_once("frontend/pages/login.php");
             } elseif($page == "register") {
                 require_once("frontend/pages/register.php");
+            } elseif($page == "logout") {
+                session_destroy();
+                echo "You're logged out.";
             }
         } else {
             require_once("frontend/pages/index.php");
