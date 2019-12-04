@@ -1,7 +1,7 @@
 <?php
     session_start();
-    require_once("system/functions.php");
-    require_once("system/config.php");
+    
+    require_once("system/includes.php");
 
     if ($maintenance == true) {
         echo "The site is under construction.";

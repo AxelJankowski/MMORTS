@@ -40,6 +40,21 @@
                             <div class="alert alert-success" role="alert"><?php echo $msg; ?></div>
                             <?php
                         }
+                        if(isset($_SESSION['loggedin'])) {
+                            ?>
+                                <h3>Village</h3>
+                                <div class="village-wrapper">
+                                    <div class="resources">
+                                        Resources
+                                    </div>
+                                    <div class="village">
+                                    </div>
+                                    <div class="army">
+                                        Army
+                                    </div>
+                                </div>
+                            <?php
+                        }
                     ?>
                     <a href="index.php?page=index">Main</a>
                     <a href="index.php?page=contact">Contact</a>
