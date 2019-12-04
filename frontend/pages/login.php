@@ -19,8 +19,8 @@
             <?php require_once("frontend/templates/header.php"); ?>
             <div class="layer">
                 <div class="content">
-                    <h2>Contact</h2>
-                    <p>This is the contact page.</p>
+                    <h2>Login</h2>
+                    <p>This is the login page.</p>
                     <a href="index.php?page=index">Main</a>
                     <a href="index.php?page=contact">Contact</a>
                 </div>
