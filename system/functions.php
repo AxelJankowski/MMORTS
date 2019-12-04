@@ -12,7 +12,9 @@
                 require_once("frontend/pages/register.php");
             } elseif($page == "logout") {
                 session_destroy();
-                echo "You're logged out.";
+                
+                header("Location: index.php?msg=logoutsuccess");
+                die();
             }
         } else {
             require_once("frontend/pages/index.php");

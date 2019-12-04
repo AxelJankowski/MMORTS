@@ -32,7 +32,8 @@
         $sql = "INSERT INTO users (username, email, password) VALUES ('$username', '$email', '$password')";
 
         if($conn->query($sql) === true) {
-            echo "Account has been created.";
+            header("Location: ../../index.php?msg=registrationsuccess");
+            die();
         } else {
             echo "Error: ".$sql."<br/>".$conn->error;
         }

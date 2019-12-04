@@ -2,6 +2,7 @@
     global $title;
     global $separator;
     global $description;
+    global $logo;
 ?>
 <html lang="en">
     <head>

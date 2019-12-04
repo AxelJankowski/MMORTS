@@ -27,9 +27,10 @@
         $rowcount = mysqli_num_rows($result);
     }
     if($rowcount == 1) {
-        echo "Correct.";
         $_SESSION['loggedin'] = $username;
-        echo $_SESSION['loggedin'];
+
+        header("Location: ../../index.php?msg=loginsuccess");
+        die();
     } else {
         echo "Incorrect account details.";
     }
