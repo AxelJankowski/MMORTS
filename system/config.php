@@ -9,7 +9,7 @@
     $conn = new mysqli($dbserver, $dbusername, $dbpassword, $db);
 
     //check connection
-    if ($conn->connect_error) {
+    if($conn->connect_error) {
         die("Connection failed: ".$conn->connect_error);
     } else {
         //if connection works, get data from database

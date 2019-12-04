@@ -12,6 +12,8 @@
 
         <link href="frontend/design/css/bootstrap.css" rel="stylesheet">
         <link href="frontend/design/css/style.css" rel="stylesheet">
+        <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
+        <link rel="icon" href="/favicon.ico" type="image/x-icon">
     </head>
 
     <body>
