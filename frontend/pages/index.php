@@ -6,15 +6,7 @@
 ?>
 <html lang="en">
     <head>
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-
-        <title><?php echo $title.$separator.$description; ?></title>
-
-        <link href="frontend/design/css/bootstrap.css" rel="stylesheet">
-        <link href="frontend/design/css/style.css" rel="stylesheet">
-        <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
-        <link rel="icon" href="/favicon.ico" type="image/x-icon">
+        <?php require_once("frontend/templates/html-head.php"); ?>
     </head>
 
     <body>
@@ -41,17 +33,53 @@
                             <?php
                         }
                         if(isset($_SESSION['loggedin'])) {
+                            //database connection
+                            $dbserver = "localhost";
+                            $dbusername = "root";
+                            $dbpassword = "";
+                            $db = "mmorts";
+
+                            //establish connection
+                            $conn = new mysqli($dbserver, $dbusername, $dbpassword, $db);
+
+                            //check connection
+                            if($conn->connect_error) {
+                                die("Connection failed: ".$conn->connect_error);
+                            }
+
+                            //user data
+                            $username = $_SESSION['loggedin'];
+
+                            $query = "SELECT id FROM users WHERE username = '$username'";
+                            $result = mysqli_query($conn, $query);
+                            $row = mysqli_fetch_assoc($result);
+
+                            $userId = $row['id'];
+
+                            //city data
+                            $query = "SELECT id, name, resources_id FROM cities WHERE user_id = '$userId'";
+                            $result = mysqli_query($conn, $query);
+                            $row = mysqli_fetch_assoc($result);
+
+                            $cityId = $row['id'];
+                            $cityName = $row['name'];
+                            $cityResourcesId = $row['resources_id'];
                             ?>
-                                <h3>Village</h3>
+                                <h3 class="text-center">Village</h3>
                                 <div class="village-wrapper">
                                     <div class="resources">
-                                        Resources
+                                        <h4>Resources</h4>
+                                        <?php
+                                            echo $cityResourcesId;
+                                        ?>
                                     </div>
                                     <div class="village">
-                                        <div class="keep">Keep</div>
+                                        <div class="keep">
+                                            <a href="http://google.com"><img src="frontend/images/keep.png"/></a>
+                                        </div>
                                     </div>
                                     <div class="army">
-                                        Army
+                                        <h4>Army</h4>
                                     </div>
                                 </div>
                             <?php

@@ -43,7 +43,7 @@ body {
     padding: 10px;
 }
 .resources {
-    background-color: black;
+    background-color: gainsboro;
     width: 250px;
     height: 450px;
     float: left;
@@ -56,12 +56,11 @@ body {
     margin: 0 10px;
 }
 .keep {
-    background-image: url("../../images/keep.png");
-    width: 560px;
-    height: 450px;
+    margin-left: 240px;
+    margin-top: 110px;
 }
 .army {
-    background-color: black;
+    background-color: gainsboro;
     width: 250px;
     height: 450px;
     float: left;
