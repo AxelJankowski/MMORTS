@@ -47,6 +47,11 @@ body {
     width: 250px;
     height: 450px;
     float: left;
+    padding: 10px;
+}
+.icon {
+    width: 35px;
+    height: auto;
 }
 .village {
     background-image: url("../../images/map.jpg");
@@ -64,6 +69,7 @@ body {
     width: 250px;
     height: 450px;
     float: left;
+    padding: 10px;
 }
 .footer {
     background-color: lightslategrey;

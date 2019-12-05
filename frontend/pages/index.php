@@ -64,13 +64,47 @@
                             $cityId = $row['id'];
                             $cityName = $row['name'];
                             $cityResourcesId = $row['resources_id'];
+
+                            //resources data
+                            $query = "SELECT wood, stone, clay, iternit, food FROM resources WHERE id = '$cityResourcesId'";
+                            $result = mysqli_query($conn, $query);
+                            $row = mysqli_fetch_assoc($result);
+
+                            $wood = $row['wood'];
+                            $stone = $row['stone'];
+                            $clay = $row['clay'];
+                            $iternit = $row['iternit'];
+                            $food = $row['food'];
+
+                            //production data
+                            $query = "SELECT wood_production, stone_production, clay_production, iternit_production, food_production FROM production WHERE city_id = '$cityId'";
+                            $result = mysqli_query($conn, $query);
+                            $row = mysqli_fetch_assoc($result);
+
+                            $woodProduction = $row['wood_production'];
+                            $stoneProduction = $row['stone_production'];
+                            $clayProduction = $row['clay_production'];
+                            $iternitProduction = $row['iternit_production'];
+                            $foodProduction = $row['food_production'];
                             ?>
-                                <h3 class="text-center">Village</h3>
+                                <h3 class="text-center"><?php echo $cityName; ?></h3>
                                 <div class="village-wrapper">
                                     <div class="resources">
-                                        <h4>Resources</h4>
+                                        <h4>RESOURCES</h4>
                                         <?php
-                                            echo $cityResourcesId;
+                                            echo "<img src='frontend/images/icons/wood.svg' class='icon' /> Wood: ".$wood."<br/>";
+                                            echo "<img src='frontend/images/icons/stone.svg' class='icon' /> Stone: ".$stone."<br/>";
+                                            echo "<img src='frontend/images/icons/clay.svg' class='icon' /> Clay: ".$clay."<br/>";
+                                            echo "<img src='frontend/images/icons/iternit.svg' class='icon' /> Iternit: ".$iternit."<br/>";
+                                            echo "<img src='frontend/images/icons/food.svg' class='icon' /> Food: ".$food."<br/>";
+                                        ?>
+                                        <h5>PRODUCTION</h5>
+                                        <?php
+                                            echo "Wood + ".$woodProduction."<br/>";
+                                            echo "Stone + ".$stoneProduction."<br/>";
+                                            echo "Clay + ".$clayProduction."<br/>";
+                                            echo "Iternit + ".$iternitProduction."<br/>";
+                                            echo "Food + ".$foodProduction."<br/>";
                                         ?>
                                     </div>
                                     <div class="village">
@@ -79,7 +113,7 @@
                                         </div>
                                     </div>
                                     <div class="army">
-                                        <h4>Army</h4>
+                                        <h4>ARMY</h4>
                                     </div>
                                 </div>
                             <?php
