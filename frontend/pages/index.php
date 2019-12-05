@@ -14,8 +14,6 @@
             <?php require_once("frontend/templates/header.php"); ?>
             <div class="layer">
                 <div class="content">
-                    <h2>Main</h2>
-                    <p>This is the main page.</p>
                     <?php
                         if(isset($_GET['msg'])) {
                             $msg = $_GET['msg'];
@@ -32,7 +30,10 @@
                             <div class="alert alert-success" role="alert"><?php echo $msg; ?></div>
                             <?php
                         }
+
                         if(isset($_SESSION['loggedin'])) {
+                            require_once("frontend/templates/navigation.php");
+
                             //database connection
                             $dbserver = "localhost";
                             $dbusername = "root";
@@ -87,10 +88,10 @@
                             $iternitProduction = $row['iternit_production'];
                             $foodProduction = $row['food_production'];
                             ?>
-                                <h3 class="text-center"><?php echo $cityName; ?></h3>
+                                <h2 class="text-center"><?php echo $cityName; ?></h2>
                                 <div class="village-wrapper">
                                     <div class="resources">
-                                        <h4>RESOURCES</h4>
+                                        <h3>RESOURCES</h3>
                                         <?php
                                             echo "<img src='frontend/images/icons/wood.svg' class='icon' /> Wood: ".$wood."<br/>";
                                             echo "<img src='frontend/images/icons/stone.svg' class='icon' /> Stone: ".$stone."<br/>";
@@ -98,7 +99,7 @@
                                             echo "<img src='frontend/images/icons/iternit.svg' class='icon' /> Iternit: ".$iternit."<br/>";
                                             echo "<img src='frontend/images/icons/food.svg' class='icon' /> Food: ".$food."<br/>";
                                         ?>
-                                        <h5>PRODUCTION</h5>
+                                        <h4>PRODUCTION</h4>
                                         <?php
                                             echo "Wood + ".$woodProduction."<br/>";
                                             echo "Stone + ".$stoneProduction."<br/>";
@@ -109,18 +110,24 @@
                                     </div>
                                     <div class="village">
                                         <div class="keep">
-                                            <a href="http://google.com"><img src="frontend/images/keep.png"/></a>
+                                            <a href="index.php?page=index"><img src="frontend/images/keep.png"/></a>
+                                        </div>
+                                        <div class="tavern">
+                                            <a href="index.php?page=tavern"><img src="frontend/images/tavern.png"/></a>
                                         </div>
                                     </div>
                                     <div class="army">
-                                        <h4>ARMY</h4>
+                                        <h3>ARMY</h3>
                                     </div>
                                 </div>
                             <?php
+                        } else {
+                            ?>
+                                <h2>Main</h2>
+                                <p>This is the main page.</p>
+                            <?php
                         }
                     ?>
-                    <a href="index.php?page=index">Main</a>
-                    <a href="index.php?page=contact">Contact</a>
                 </div>
             </div>
             <?php require_once("frontend/templates/footer.php"); ?>

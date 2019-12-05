@@ -4,13 +4,20 @@
             $page = $_GET['page'];
             if($page == "index") {
                 require_once("frontend/pages/index.php");
-            } elseif($page == "contact") {
-                require_once("frontend/pages/contact.php");
-            } elseif($page == "login") {
+            }
+            elseif($page == "worldmap") {
+                require_once("frontend/pages/worldmap.php");
+            }
+            elseif($page == "tavern") {
+                require_once("frontend/pages/tavern.php");
+            }
+            elseif($page == "login") {
                 require_once("frontend/pages/login.php");
-            } elseif($page == "register") {
+            }
+            elseif($page == "register") {
                 require_once("frontend/pages/register.php");
-            } elseif($page == "logout") {
+            }
+            elseif($page == "logout") {
                 session_destroy();
                 
                 header("Location: index.php?msg=logoutsuccess");

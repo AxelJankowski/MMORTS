@@ -18,20 +18,20 @@
     $username = $_POST['username'];
     $password = $_POST['password'];
 
-    //encrypt password
-    $password = md5($password);
-
     //check if user already exists
-    $sql = "SELECT * FROM users WHERE username = '$username' AND password = '$password'";
-    if($result = mysqli_query($conn, $sql)) {
-        $rowcount = mysqli_num_rows($result);
-    }
-    if($rowcount == 1) {
+    $query = "SELECT password FROM users WHERE username = '$username'";
+    $result = mysqli_query($conn, $query);
+    $row = mysqli_fetch_assoc($result);
+
+    $dbPassword = $row['password'];
+
+    //check password
+    if(password_verify($password, $dbPassword)) {
         $_SESSION['loggedin'] = $username;
 
         header("Location: ../../index.php?msg=loginsuccess");
         die();
     } else {
-        echo "Incorrect account details.";
+        echo "Password is incorrect.";
     }
 ?>

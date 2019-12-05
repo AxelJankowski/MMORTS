@@ -18,7 +18,7 @@
     $password = $_POST['password'];
 
     //encrypt password
-    $password = md5($password);
+    $password = password_hash($password, PASSWORD_BCRYPT);
 
     //check if user already exists
     $sql = "SELECT username FROM users WHERE username = '$username'";
