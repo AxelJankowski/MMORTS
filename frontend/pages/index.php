@@ -48,6 +48,7 @@
                                         Resources
                                     </div>
                                     <div class="village">
+                                        <div class="keep">Keep</div>
                                     </div>
                                     <div class="army">
                                         Army

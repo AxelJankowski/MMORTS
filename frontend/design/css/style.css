@@ -55,6 +55,11 @@ body {
     float: left;
     margin: 0 10px;
 }
+.keep {
+    background-image: url("../../images/keep.png");
+    width: 560px;
+    height: 450px;
+}
 .army {
     background-color: black;
     width: 250px;
