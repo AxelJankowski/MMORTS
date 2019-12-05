@@ -32,6 +32,6 @@
         header("Location: ../../index.php?msg=loginsuccess");
         die();
     } else {
-        echo "Password is incorrect.";
+        echo "Username and password do not match.";
     }
 ?>

@@ -18,15 +18,15 @@
                     <form role="form" action="backend/account/register-handle.php" method="POST">
                         <div class="form-group">
                             <label for="username">Username:</label>
-                            <input type="username" class="form-control" name="username">
+                            <input type="username" class="form-control" name="username" required>
                         </div>
                         <div class="form-group">
                             <label for="email">E-mail address:</label>
-                            <input type="email" class="form-control" name="email">
+                            <input type="email" class="form-control" name="email" required>
                         </div>
                         <div class="form-group">
                             <label for="password">Password:</label>
-                            <input type="password" class="form-control" name="password">
+                            <input type="password" class="form-control" name="password" required>
                         </div>
                         <button type="submit" class="btn btn-default">Submit</button>
                     </form>

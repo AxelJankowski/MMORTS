@@ -36,6 +36,13 @@
                             ?>
                                 <h2>Tavern</h2>
                                 <p>Welcome to the tavern.</p>
+                                <div class="chat-container">
+                                    <div class="chat"></div>
+                                    <form class="message-container">
+                                        <input type="text" type="text" placeholder="Write your message here." class="message"></input>
+                                        <button type="submit" class="submit">Submit</button>
+                                    </form>
+                                </div>
                             <?php
                         } else {
                             ?>

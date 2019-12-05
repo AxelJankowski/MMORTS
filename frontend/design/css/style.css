@@ -80,6 +80,20 @@ body {
     text-align: center;
 }
 
+
+.chat {
+    background-color: gainsboro;
+    width: 560px;
+    height: 350px;
+    margin-bottom: 10px;
+}
+.message {
+    width: 430px;
+}
+.submit {
+    width: 127px;
+}
+
 .responsive {
     width: 100%;
     height: auto;

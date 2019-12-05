@@ -89,7 +89,7 @@
                             $foodProduction = $row['food_production'];
                             ?>
                                 <h2 class="text-center"><?php echo $cityName; ?></h2>
-                                <div class="village-wrapper">
+                                <div class="village-container">
                                     <div class="resources">
                                         <h3>RESOURCES</h3>
                                         <?php
@@ -109,10 +109,10 @@
                                         ?>
                                     </div>
                                     <div class="village">
-                                        <div class="keep">
+                                        <div class="keep" title="Keep">
                                             <a href="index.php?page=index"><img src="frontend/images/keep.png"/></a>
                                         </div>
-                                        <div class="tavern">
+                                        <div class="tavern" title="Tavern">
                                             <a href="index.php?page=tavern"><img src="frontend/images/tavern.png"/></a>
                                         </div>
                                     </div>
