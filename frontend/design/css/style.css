@@ -20,6 +20,7 @@ body {
     margin-top: 50px;
     margin-bottom: 50px;
 }
+
 .header {
     background-color: lightslategrey;
     padding: 10px;
@@ -33,12 +34,14 @@ body {
     float: left;
     margin-left: 15px;
 }
+
 .content {
     background-color: lightslategrey;
     width: 100%;
     display: inline-block;
     padding: 10px;
-}  
+} 
+
 .resources {
     background-color: gainsboro;
     width: 250px;
@@ -74,12 +77,17 @@ body {
     float: left;
     padding: 10px;
 }
-.footer {
-    background-color: lightslategrey;
-    padding: 10px;
-    text-align: center;
-}
 
+.worldGrid {
+    width: 60%;
+    margin: auto;
+}
+.worldBox {
+    width: 16%;
+    height: 8%;
+    border: 1px solid black;
+    float: left;
+}
 
 .chat {
     background-color: gainsboro;
@@ -92,6 +100,12 @@ body {
 }
 .submit {
     width: 127px;
+}
+
+.footer {
+    background-color: lightslategrey;
+    padding: 10px;
+    text-align: center;
 }
 
 .responsive {

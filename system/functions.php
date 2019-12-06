@@ -3,7 +3,7 @@
         if(isset($_GET['page'])){
             $page = $_GET['page'];
             if($page == "index") {
-                require_once("frontend/pages/index.php");
+                require_once("frontend/index.php");
             }
             elseif($page == "worldmap") {
                 require_once("frontend/pages/worldmap.php");
@@ -24,7 +24,7 @@
                 die();
             }
         } else {
-            require_once("frontend/pages/index.php");
+            require_once("frontend/index.php");
         }
         
     }

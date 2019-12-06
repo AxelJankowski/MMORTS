@@ -37,7 +37,16 @@
                                 <h2>World Map</h2>
                                 <p>This is the world map page.</p>
                             <?php
-                        } else {
+                            //generate map
+                            echo "<div class=worldGrid>";
+                            for($y = 0; $y < 6; $y++) {
+                                for($x = 0; $x < 6; $x++) {
+                                    echo "<div class='worldBox'></div>";
+                                }
+                            }
+                            echo "</div>";
+                        }
+                        else {
                             ?>
                                 <p>You have to login in order to see the world map.</p>
                             <?php
