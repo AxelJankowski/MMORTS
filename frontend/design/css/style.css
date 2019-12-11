@@ -50,6 +50,8 @@ body {
     background-color: gainsboro;
     max-width: 250px;
     max-height: 450px;
+    width: 25%;
+    height: 100%;
     float: left;
     padding: 10px;
 }
@@ -62,6 +64,9 @@ body {
     background-image: url("../../images/map.jpg");
     max-width: 560px;
     max-height: 450px;
+    width: 60%;
+    height: 100%;
+    width: 50%;
     float: left;
     margin: 0 10px;
 }
@@ -80,6 +85,8 @@ body {
     background-color: gainsboro;
     max-width: 250px;
     max-height: 450px;
+    width: 25%;
+    height: 100%;
     float: left;
     padding: 10px;
 }
