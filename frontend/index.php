@@ -77,16 +77,27 @@
                             $iternit = $row['iternit'];
                             $food = $row['food'];
 
-                            //production data
-                            $query = "SELECT wood_production, stone_production, clay_production, iternit_production, food_production FROM production WHERE city_id = '$cityId'";
+                            //buildings data
+                            $query = "SELECT keep_level, tavern_level, barracks_level FROM buildings WHERE city_id = '$cityId'";
                             $result = mysqli_query($conn, $query);
                             $row = mysqli_fetch_assoc($result);
 
-                            $woodProduction = $row['wood_production'];
-                            $stoneProduction = $row['stone_production'];
-                            $clayProduction = $row['clay_production'];
-                            $iternitProduction = $row['iternit_production'];
-                            $foodProduction = $row['food_production'];
+                            $keepLevel = $row['keep_level'];
+                            $tavernLevel = $row['tavern_level'];
+                            $barracksLevel = $row['barracks_level'];
+
+                            //production data:
+
+                            //KEEP
+                            $query = "SELECT wood_production, stone_production, clay_production, iternit_production, food_production FROM building_types WHERE type = 'keep' AND level = '$keepLevel'";
+                            $result = mysqli_query($conn, $query);
+                            $row = mysqli_fetch_assoc($result);
+
+                            $keepWood = $row['wood_production'];
+                            $keepStone = $row['stone_production'];
+                            $keepClay = $row['clay_production'];
+                            $keepIternit = $row['iternit_production'];
+                            $keepFood = $row['food_production'];
                             ?>
                                 <h2 class="text-center"><?php echo $cityName; ?></h2>
                                 <div class="village-container">
@@ -101,20 +112,30 @@
                                         ?>
                                         <h4>PRODUCTION</h4>
                                         <?php
-                                            echo "Wood + ".$woodProduction."<br/>";
-                                            echo "Stone + ".$stoneProduction."<br/>";
-                                            echo "Clay + ".$clayProduction."<br/>";
-                                            echo "Iternit + ".$iternitProduction."<br/>";
-                                            echo "Food + ".$foodProduction."<br/>";
+                                            echo "Wood + ".$keepWood."<br/>";
+                                            echo "Stone + ".$keepStone."<br/>";
+                                            echo "Clay + ".$keepClay."<br/>";
+                                            echo "Iternit + ".$keepIternit."<br/>";
+                                            echo "Food + ".$keepFood."<br/>";
                                         ?>
                                     </div>
                                     <div class="village">
-                                        <div class="keep" title="Keep">
-                                            <a href="index.php?page=index"><img src="frontend/images/keep.png"/></a>
-                                        </div>
-                                        <div class="tavern" title="Tavern">
-                                            <a href="index.php?page=tavern"><img src="frontend/images/tavern.png"/></a>
-                                        </div>
+                                        <?php
+                                            if($keepLevel >= 1) {
+                                                ?>
+                                                    <div class="keep" title="Keep lvl. <?php echo $keepLevel ?>">
+                                                        <a href="index.php?page=index"><img src="frontend/images/keep.png"/></a>
+                                                    </div>
+                                                <?php
+                                            }
+                                            if($tavernLevel >= 1) {
+                                                ?>
+                                                    <div class="tavern" title="Tavern">
+                                                        <a href="index.php?page=tavern"><img src="frontend/images/tavern.png"/></a>
+                                                    </div>
+                                                <?php
+                                            }
+                                        ?>
                                     </div>
                                     <div class="army">
                                         <h3>ARMY</h3>

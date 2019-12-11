@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Czas generowania: 05 Gru 2019, 21:50
+-- Czas generowania: 11 Gru 2019, 11:15
 -- Wersja serwera: 10.4.8-MariaDB
 -- Wersja PHP: 7.3.11
 
@@ -47,10 +47,51 @@ CREATE TABLE `army` (
 CREATE TABLE `buildings` (
   `id` int(255) NOT NULL,
   `city_id` int(255) DEFAULT NULL,
-  `user_id` int(255) DEFAULT NULL,
-  `type` int(2) DEFAULT NULL,
-  `level` int(2) DEFAULT NULL
+  `keep_level` int(2) DEFAULT 1,
+  `tavern_level` int(2) DEFAULT 1,
+  `barracks_level` int(2) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Zrzut danych tabeli `buildings`
+--
+
+INSERT INTO `buildings` (`id`, `city_id`, `keep_level`, `tavern_level`, `barracks_level`) VALUES
+(1, 1, 1, 1, NULL);
+
+-- --------------------------------------------------------
+
+--
+-- Struktura tabeli dla tabeli `building_types`
+--
+
+CREATE TABLE `building_types` (
+  `id` int(255) NOT NULL,
+  `type` varchar(255) DEFAULT NULL,
+  `level` int(2) DEFAULT NULL,
+  `defence` int(255) DEFAULT NULL,
+  `wood_production` int(255) DEFAULT NULL,
+  `stone_production` int(255) DEFAULT NULL,
+  `clay_production` int(255) DEFAULT NULL,
+  `iternit_production` int(255) DEFAULT NULL,
+  `food_production` int(255) DEFAULT NULL,
+  `swordsman_production` int(255) DEFAULT NULL,
+  `archer_production` int(255) DEFAULT NULL,
+  `knight_production` int(255) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Zrzut danych tabeli `building_types`
+--
+
+INSERT INTO `building_types` (`id`, `type`, `level`, `defence`, `wood_production`, `stone_production`, `clay_production`, `iternit_production`, `food_production`, `swordsman_production`, `archer_production`, `knight_production`) VALUES
+(1, 'keep', 0, 0, 0, 0, 0, 0, 0, NULL, NULL, NULL),
+(2, 'keep', 1, 1000, 1, 0, 0, 0, 1, NULL, NULL, NULL),
+(3, 'keep', 2, 2000, 1, 1, 0, 0, 2, NULL, NULL, NULL),
+(4, 'tavern', 0, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+(5, 'tavern', 1, 200, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+(6, 'barracks', 0, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+(7, 'barracks', 1, 400, NULL, NULL, NULL, NULL, NULL, 10, 5, NULL);
 
 -- --------------------------------------------------------
 
@@ -72,7 +113,7 @@ CREATE TABLE `cities` (
 --
 
 INSERT INTO `cities` (`id`, `user_id`, `name`, `resources_id`, `buildings_id`, `production_id`) VALUES
-(1, 1, 'Popopołczyno', 1, NULL, NULL);
+(1, 1, 'Popopołczyno', 1, 1, 1);
 
 -- --------------------------------------------------------
 
@@ -108,29 +149,6 @@ CREATE TABLE `map` (
   `y` int(255) DEFAULT NULL,
   `type` int(255) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
--- --------------------------------------------------------
-
---
--- Struktura tabeli dla tabeli `production`
---
-
-CREATE TABLE `production` (
-  `id` int(255) NOT NULL,
-  `city_id` int(255) DEFAULT NULL,
-  `wood_production` int(255) DEFAULT NULL,
-  `stone_production` int(255) DEFAULT NULL,
-  `clay_production` int(255) DEFAULT NULL,
-  `iternit_production` int(255) DEFAULT NULL,
-  `food_production` int(255) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
---
--- Zrzut danych tabeli `production`
---
-
-INSERT INTO `production` (`id`, `city_id`, `wood_production`, `stone_production`, `clay_production`, `iternit_production`, `food_production`) VALUES
-(1, 1, 1, 0, 0, 0, 1);
 
 -- --------------------------------------------------------
 
@@ -230,6 +248,12 @@ ALTER TABLE `buildings`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Indeksy dla tabeli `building_types`
+--
+ALTER TABLE `building_types`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indeksy dla tabeli `cities`
 --
 ALTER TABLE `cities`
@@ -245,12 +269,6 @@ ALTER TABLE `configuration`
 -- Indeksy dla tabeli `map`
 --
 ALTER TABLE `map`
-  ADD PRIMARY KEY (`id`);
-
---
--- Indeksy dla tabeli `production`
---
-ALTER TABLE `production`
   ADD PRIMARY KEY (`id`);
 
 --
@@ -297,7 +315,7 @@ ALTER TABLE `army`
 -- AUTO_INCREMENT dla tabeli `buildings`
 --
 ALTER TABLE `buildings`
-  MODIFY `id` int(255) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT dla tabeli `cities`
@@ -316,12 +334,6 @@ ALTER TABLE `configuration`
 --
 ALTER TABLE `map`
   MODIFY `id` int(255) NOT NULL AUTO_INCREMENT;
-
---
--- AUTO_INCREMENT dla tabeli `production`
---
-ALTER TABLE `production`
-  MODIFY `id` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT dla tabeli `profiles`
