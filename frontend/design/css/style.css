@@ -42,10 +42,14 @@ body {
     padding: 10px;
 } 
 
+.village-container {
+    width: 100%;
+}
+
 .resources {
     background-color: gainsboro;
-    width: 250px;
-    height: 450px;
+    max-width: 250px;
+    max-height: 450px;
     float: left;
     padding: 10px;
 }
@@ -53,10 +57,11 @@ body {
     width: 35px;
     height: auto;
 }
+
 .village {
     background-image: url("../../images/map.jpg");
-    width: 560px;
-    height: 450px;
+    max-width: 560px;
+    max-height: 450px;
     float: left;
     margin: 0 10px;
 }
@@ -70,10 +75,11 @@ body {
     margin-left: 130px;
     margin-top: 160px;
 }
+
 .army {
     background-color: gainsboro;
-    width: 250px;
-    height: 450px;
+    max-width: 250px;
+    max-height: 450px;
     float: left;
     padding: 10px;
 }
@@ -89,17 +95,16 @@ body {
     float: left;
 }
 
-.chat {
-    background-color: gainsboro;
+.chat-container {
     width: 560px;
     height: 350px;
+}
+.chat {
+    background-color: gainsboro;
     margin-bottom: 10px;
 }
-.message {
-    width: 430px;
-}
-.submit {
-    width: 127px;
+.message-container {
+    width: 560px;
 }
 
 .footer {

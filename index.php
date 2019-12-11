@@ -4,8 +4,11 @@
     require_once("system/includes.php");
 
     if ($maintenance == true) {
+        //display maintenance message
         echo "The site is under construction.";
-    } elseif ($maintenance == false) {
+    }
+    elseif ($maintenance == false) {
+        //open the game
         getPage();
     }
 ?>
