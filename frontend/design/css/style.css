@@ -44,15 +44,14 @@ body {
 
 .village-container {
     width: 100%;
+    height: 450px;
+    display: flex;
 }
 
-.resources {
+.left-panel {
     background-color: gainsboro;
-    max-width: 250px;
-    max-height: 450px;
-    width: 25%;
+    width: 27.5%;
     height: 100%;
-    float: left;
     padding: 10px;
 }
 .icon {
@@ -62,12 +61,8 @@ body {
 
 .village {
     background-image: url("../../images/map.jpg");
-    max-width: 560px;
-    max-height: 450px;
     width: 60%;
     height: 100%;
-    width: 50%;
-    float: left;
     margin: 0 10px;
 }
 .keep {
@@ -75,27 +70,33 @@ body {
     margin-left: 240px;
     margin-top: 90px;
 }
+.keep:hover {
+    cursor: pointer;
+}
 .tavern {
     position: absolute;
     margin-left: 130px;
     margin-top: 160px;
 }
 
-.army {
+.right-panel {
     background-color: gainsboro;
-    max-width: 250px;
-    max-height: 450px;
-    width: 25%;
+    width: 27.5%;
     height: 100%;
-    float: left;
     padding: 10px;
 }
+#army {
+    display: block;
+}
+#keep-panel {
+    display: none;
+}
 
-.worldGrid {
+.world-grid {
     width: 60%;
     margin: auto;
 }
-.worldBox {
+.world-box {
     width: 16%;
     height: 8%;
     border: 1px solid black;
@@ -104,10 +105,11 @@ body {
 
 .chat-container {
     width: 560px;
-    height: 350px;
+    height: 450px;
 }
 .chat {
     background-color: gainsboro;
+    height: 85%;
     margin-bottom: 10px;
 }
 .message-container {

@@ -38,10 +38,10 @@
                                 <p>This is the world map page.</p>
                             <?php
                             //generate map
-                            echo "<div class=worldGrid>";
+                            echo "<div class=world-grid>";
                             for($y = 0; $y < 6; $y++) {
                                 for($x = 0; $x < 6; $x++) {
-                                    echo "<div class='worldBox'></div>";
+                                    echo "<div class='world-box'></div>";
                                 }
                             }
                             echo "</div>";

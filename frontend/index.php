@@ -89,13 +89,12 @@
                                 $tavernLevel = $row['tavern_level'];
                                 $barracksLevel = $row['barracks_level'];
 
-                                //production data:
-
                                 //keep
-                                $query = "SELECT wood_production, stone_production, clay_production, iternit_production, food_production FROM building_types WHERE type = 'keep' AND level = '$keepLevel'";
+                                $query = "SELECT defence, wood_production, stone_production, clay_production, iternit_production, food_production FROM building_types WHERE type = 'keep' AND level = '$keepLevel'";
                                 $result = mysqli_query($conn, $query);
                                 $row = mysqli_fetch_assoc($result);
 
+                                $keepDefence = $row['defence'];
                                 $keepWood = $row['wood_production'];
                                 $keepStone = $row['stone_production'];
                                 $keepClay = $row['clay_production'];
@@ -106,7 +105,9 @@
                                 ?>
                                     <h2 class="text-center"><?php echo $cityName; ?></h2>
                                     <div class="village-container">
-                                        <div class="resources">
+
+                                        <!-- LEFT PANEL -->
+                                        <div class="left-panel">
                                             <h3>RESOURCES</h3>
                                             <?php
                                                 echo "<img src='frontend/images/icons/wood.svg' class='icon' /> Wood: ".$wood."<br/>";
@@ -124,26 +125,55 @@
                                                 echo "Food + ".$keepFood."<br/>";
                                             ?>
                                         </div>
+
+                                        <!-- VILLAGE (MIDDLE) -->
                                         <div class="village">
+                                            <div class="keep" title="Keep lvl. <?php echo $keepLevel ?>" onclick="openBuildPanel(keep)">
                                             <?php
                                                 if($keepLevel > 0) {
-                                                    ?>
-                                                        <div class="keep" title="Keep lvl. <?php echo $keepLevel ?>">
-                                                            <a href="index.php?page=index"><img src="frontend/images/keep.png"/></a>
-                                                        </div>
-                                                    <?php
-                                                }
-                                                if($tavernLevel > 0) {
-                                                    ?>
-                                                        <div class="tavern" title="Tavern">
-                                                            <a href="index.php?page=tavern"><img src="frontend/images/tavern.png"/></a>
-                                                        </div>
-                                                    <?php
+                                                ?>
+                                                    <img src="frontend/images/keep.png"/>
+                                                <?php
+                                                } else {
+                                                ?>
+                                                    <!-- should be image of building site -->
+                                                    <img src="frontend/images/keep.png"/>
+                                                <?php
                                                 }
                                             ?>
+                                            </div>
+                                            <div class="tavern" title="Tavern">
+                                            <?php
+                                                if($tavernLevel > 0) {
+                                                ?>
+                                                    <a href="index.php?page=tavern"><img src="frontend/images/tavern.png"/></a>
+                                                <?php
+                                                } else {
+                                                ?>
+                                                    <!-- should be image of building site -->
+                                                    <img src="frontend/images/tavern.png"/>
+                                                <?php
+                                                }
+                                            ?>
+                                            </div>
                                         </div>
-                                        <div class="army">
+
+                                        <!-- RIGHT PANEL -->
+                                        <div class="right-panel" id="army">
                                             <h3>ARMY</h3>
+                                            Your people use chopsticks instead of forks and knives.
+                                            <br/><br/>
+                                            Train them to fight.
+                                        </div>
+
+                                        <div class="right-panel" id="keep-panel">
+                                            <h3>KEEP</h3>
+                                            <button type="button" class="close" onclick="closeBuildPanel(keep)">
+                                                <span aria-hidden="true">&times;</span>
+                                            </button>
+                                            <b>Building lvl. <?php echo $keepLevel ?></b>
+                                            <br/>
+                                            Defence: <?php echo $keepDefence ?>
                                         </div>
                                     </div>
                                 <?php
@@ -165,5 +195,7 @@
             </div>
             <?php require_once("frontend/templates/footer.php"); ?>
         </div>
+
+        <script src="frontend/animations/functions.js"></script>
     </body>
 </html>

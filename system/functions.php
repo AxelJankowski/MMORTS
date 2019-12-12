@@ -26,6 +26,5 @@
         } else {
             require_once("frontend/index.php");
         }
-        
     }
 ?>
