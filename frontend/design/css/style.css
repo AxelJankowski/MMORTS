@@ -70,13 +70,14 @@ body {
     margin-left: 240px;
     margin-top: 90px;
 }
-.keep:hover {
-    cursor: pointer;
-}
 .tavern {
     position: absolute;
     margin-left: 130px;
     margin-top: 160px;
+}
+
+.keep, .tavern:hover {
+    cursor: pointer;
 }
 
 .right-panel {
@@ -88,7 +89,7 @@ body {
 #army {
     display: block;
 }
-#keep-panel {
+#keep-panel, #tavern-panel {
     display: none;
 }
 

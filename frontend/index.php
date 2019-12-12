@@ -101,6 +101,13 @@
                                 $keepIternit = $row['iternit_production'];
                                 $keepFood = $row['food_production'];
 
+                                //tavern
+                                $query = "SELECT defence FROM building_types WHERE type = 'tavern' AND level = '$tavernLevel'";
+                                $result = mysqli_query($conn, $query);
+                                $row = mysqli_fetch_assoc($result);
+
+                                $tavernDefence = $row['defence'];
+
                                 //will be more (e.g. lumber mill, mines)
                                 ?>
                                     <h2 class="text-center"><?php echo $cityName; ?></h2>
@@ -128,7 +135,7 @@
 
                                         <!-- VILLAGE (MIDDLE) -->
                                         <div class="village">
-                                            <div class="keep" title="Keep lvl. <?php echo $keepLevel ?>" onclick="openBuildPanel(keep)">
+                                            <div class="keep" title="Keep lvl. <?php echo $keepLevel; ?>" onclick="openBuildPanel(keep)">
                                             <?php
                                                 if($keepLevel > 0) {
                                                 ?>
@@ -142,16 +149,16 @@
                                                 }
                                             ?>
                                             </div>
-                                            <div class="tavern" title="Tavern">
+                                            <div class="tavern" onclick="openBuildPanel(tavern)">
                                             <?php
                                                 if($tavernLevel > 0) {
                                                 ?>
-                                                    <a href="index.php?page=tavern"><img src="frontend/images/tavern.png"/></a>
+                                                    <img src="frontend/images/tavern.png" title="Tavern"/>
                                                 <?php
                                                 } else {
                                                 ?>
                                                     <!-- should be image of building site -->
-                                                    <img src="frontend/images/tavern.png"/>
+                                                    <img src="frontend/images/tavern.png" title="Tavern ruins"/>
                                                 <?php
                                                 }
                                             ?>
@@ -171,9 +178,35 @@
                                             <button type="button" class="close" onclick="closeBuildPanel(keep)">
                                                 <span aria-hidden="true">&times;</span>
                                             </button><br/>
-                                            <b>Building lvl. <?php echo $keepLevel ?></b>
-                                            <br/>
-                                            Defence: <?php echo $keepDefence ?>
+                                            <?php
+                                            if($keepLevel > 0) {
+                                                ?>
+                                                <b>Building lvl. <?php echo $keepLevel; ?></b>
+                                                <br/>
+                                                Defence: <?php echo $keepDefence; ?>
+                                                <?php
+                                            } else {
+                                                echo "Keep has fallen.";
+                                            }
+                                            ?>
+                                        </div>
+
+                                        <div class="right-panel" id="tavern-panel">
+                                            <h3 style="display:inline-block;">TAVERN</h3>
+                                            <button type="button" class="close" onclick="closeBuildPanel(tavern)">
+                                                <span aria-hidden="true">&times;</span>
+                                            </button><br/>
+                                            <?php
+                                            if($tavernLevel > 0) {
+                                                ?>
+                                                Defence: <?php echo $tavernDefence; ?>
+                                                <br/><br/>
+                                                <a href="index.php?page=tavern" class="btn btn-outline-dark">Go inside</a>
+                                                <?php
+                                            } else {
+                                                echo "Ruins and ashes...";
+                                            }
+                                            ?>
                                         </div>
                                     </div>
                                 <?php
