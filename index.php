@@ -1,7 +1,7 @@
 <?php
     session_start();
     
-    require_once("system/includes.php");
+    require_once("backend/system/includes.php");
 
     if ($maintenance == true) {
         //display maintenance message
