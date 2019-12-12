@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Czas generowania: 11 Gru 2019, 11:15
+-- Czas generowania: 12 Gru 2019, 13:03
 -- Wersja serwera: 10.4.8-MariaDB
 -- Wersja PHP: 7.3.11
 
@@ -86,8 +86,8 @@ CREATE TABLE `building_types` (
 
 INSERT INTO `building_types` (`id`, `type`, `level`, `defence`, `wood_production`, `stone_production`, `clay_production`, `iternit_production`, `food_production`, `swordsman_production`, `archer_production`, `knight_production`) VALUES
 (1, 'keep', 0, 0, 0, 0, 0, 0, 0, NULL, NULL, NULL),
-(2, 'keep', 1, 1000, 1, 0, 0, 0, 1, NULL, NULL, NULL),
-(3, 'keep', 2, 2000, 1, 1, 0, 0, 2, NULL, NULL, NULL),
+(2, 'keep', 1, 1000, 10, 0, 0, 0, 10, NULL, NULL, NULL),
+(3, 'keep', 2, 2000, 20, 10, 0, 0, 20, NULL, NULL, NULL),
 (4, 'tavern', 0, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
 (5, 'tavern', 1, 200, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
 (6, 'barracks', 0, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
@@ -184,7 +184,7 @@ CREATE TABLE `resources` (
 --
 
 INSERT INTO `resources` (`id`, `user_id`, `city_id`, `wood`, `stone`, `clay`, `iternit`, `food`) VALUES
-(1, 1, 1, 22, 10, 10, 0, 52);
+(1, 1, 1, 200, 100, 100, 0, 200);
 
 -- --------------------------------------------------------
 
@@ -229,7 +229,8 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`id`, `username`, `email`, `password`) VALUES
-(1, 'eSKULLuss', 'eskulluss@gmail.com', '$2y$10$VrSP/ft3bC/PX.UuYMy9VOYbYxv9MViLIYnqRaiUNw4LJQj/a1qa.');
+(1, 'eSKULLuss', 'eskulluss@gmail.com', '$2y$10$VrSP/ft3bC/PX.UuYMy9VOYbYxv9MViLIYnqRaiUNw4LJQj/a1qa.'),
+(6, 'test', 'test@test.test', '$2y$10$nAancLD.kBxRbENHuSK.Eung.XUksnzR4LThseXWuTPf00g0Jpz9.');
 
 --
 -- Indeksy dla zrzutów tabel
@@ -363,7 +364,7 @@ ALTER TABLE `units`
 -- AUTO_INCREMENT dla tabeli `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

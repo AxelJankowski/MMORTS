@@ -167,10 +167,10 @@
                                         </div>
 
                                         <div class="right-panel" id="keep-panel">
-                                            <h3>KEEP</h3>
+                                            <h3 style="display:inline-block;">KEEP</h3>
                                             <button type="button" class="close" onclick="closeBuildPanel(keep)">
                                                 <span aria-hidden="true">&times;</span>
-                                            </button>
+                                            </button><br/>
                                             <b>Building lvl. <?php echo $keepLevel ?></b>
                                             <br/>
                                             Defence: <?php echo $keepDefence ?>
