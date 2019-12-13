@@ -217,7 +217,12 @@
                                 ?>
                                     <div class="text-center mt-5 mb-5">
                                         <p>You are not in control of any village now.</p>
-                                        <a class="btn btn-outline-dark">Create your settlement!</a>
+                                        <form role="form" action="backend/account/new-village.php" method="POST">
+                                            <div class="form-group">
+                                                <input type="text" placeholder="Enter name of a new village." class="form-control" name="new-city" required></input>
+                                            </div>
+                                            <button type="submit" class="btn btn-outline-dark">Create your settlement!</button>
+                                        </form>
                                     </div>
                                 <?php
                             }

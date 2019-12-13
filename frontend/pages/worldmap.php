@@ -24,6 +24,8 @@
                                 $msg = "Account has been created successfully.";
                             } elseif($msg == "logoutsuccess") {
                                 $msg = "Logged out successfully.";
+                            } elseif($msg == "villagecreated") {
+                                $msg = "Settlement created successfully.";
                             }
 
                             ?>
