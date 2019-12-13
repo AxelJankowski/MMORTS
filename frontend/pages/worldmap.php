@@ -34,8 +34,10 @@
                         if(isset($_SESSION['loggedin'])) {
                             require_once("frontend/templates/navigation.php");
                             ?>
-                                <h2>World Map</h2>
-                                <p>This is the world map page.</p>
+                                <div class="text-center">
+                                    <h2>World Map</h2>
+                                    <p>This is the world map page.</p>
+                                </div>
                             <?php
                             //generate map
                             echo "<div class=world-grid>";

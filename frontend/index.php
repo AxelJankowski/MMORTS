@@ -110,7 +110,10 @@
 
                                 //will be more (e.g. lumber mill, mines)
                                 ?>
-                                    <h2 class="text-center"><?php echo $cityName; ?></h2>
+                                    <div class="text-center">
+                                        <h2><?php echo $cityName; ?></h2>
+                                        <p>This is your village.</p>
+                                    </div>
                                     <div class="village-container">
 
                                         <!-- LEFT PANEL -->
@@ -212,9 +215,10 @@
                                 <?php
                             } else {
                                 ?>
-                                    You are not in control of any village now.
-
-                                    Create your settlement!
+                                    <div class="text-center mt-5 mb-5">
+                                        <p>You are not in control of any village now.</p>
+                                        <a class="btn btn-outline-dark">Create your settlement!</a>
+                                    </div>
                                 <?php
                             }
                         } else {
