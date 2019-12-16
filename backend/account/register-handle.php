@@ -13,9 +13,9 @@
         die("Connection failed: ".$conn->connect_error);
     }
 
-    $username = $_POST['username'];
-    $email = $_POST['email'];
-    $password = $_POST['password'];
+    $username = mysql_real_escape_string($_POST['username']);
+    $email = mysql_real_escape_string($_POST['email']);
+    $password = mysql_real_escape_string($_POST['password']);
 
     $username = htmlentities($username, ENT_QUOTES, "UTF-8");
     $email = htmlentities($email, ENT_QUOTES, "UTF-8");
