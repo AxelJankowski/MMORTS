@@ -48,7 +48,6 @@
             //add new buildings and resources data to database
             $query = "INSERT INTO buildings (city_id) VALUES ('$cityId')";
             $conn->query($query);
-            
             $query = "INSERT INTO resources (user_id, city_id) VALUES ('$userId', '$cityId')";
             $conn->query($query);
 

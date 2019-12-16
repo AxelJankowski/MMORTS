@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Czas generowania: 16 Gru 2019, 16:28
+-- Czas generowania: 16 Gru 2019, 16:52
 -- Wersja serwera: 10.4.8-MariaDB
 -- Wersja PHP: 7.3.11
 
@@ -103,18 +103,16 @@ INSERT INTO `building_types` (`id`, `type`, `level`, `defence`, `wood_production
 CREATE TABLE `cities` (
   `id` int(255) NOT NULL,
   `user_id` int(255) DEFAULT NULL,
-  `name` varchar(20) DEFAULT NULL,
-  `resources_id` int(255) DEFAULT NULL,
-  `buildings_id` int(255) DEFAULT NULL
+  `name` varchar(20) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Zrzut danych tabeli `cities`
 --
 
-INSERT INTO `cities` (`id`, `user_id`, `name`, `resources_id`, `buildings_id`) VALUES
-(1, 1, 'Popopołczyno', 1, 1),
-(2, 2, 'Test', NULL, NULL);
+INSERT INTO `cities` (`id`, `user_id`, `name`) VALUES
+(1, 1, 'Popopołczyno'),
+(2, 2, 'Test');
 
 -- --------------------------------------------------------
 
@@ -149,18 +147,6 @@ CREATE TABLE `map` (
   `x` int(255) DEFAULT NULL,
   `y` int(255) DEFAULT NULL,
   `type` int(255) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
--- --------------------------------------------------------
-
---
--- Struktura tabeli dla tabeli `profiles`
---
-
-CREATE TABLE `profiles` (
-  `id` int(255) NOT NULL,
-  `nickname` varchar(20) DEFAULT NULL,
-  `picture` varchar(255) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
@@ -275,12 +261,6 @@ ALTER TABLE `map`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indeksy dla tabeli `profiles`
---
-ALTER TABLE `profiles`
-  ADD PRIMARY KEY (`id`);
-
---
 -- Indeksy dla tabeli `resources`
 --
 ALTER TABLE `resources`
@@ -318,13 +298,13 @@ ALTER TABLE `army`
 -- AUTO_INCREMENT dla tabeli `buildings`
 --
 ALTER TABLE `buildings`
-  MODIFY `id` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT dla tabeli `cities`
 --
 ALTER TABLE `cities`
-  MODIFY `id` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT dla tabeli `configuration`
@@ -339,16 +319,10 @@ ALTER TABLE `map`
   MODIFY `id` int(255) NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT dla tabeli `profiles`
---
-ALTER TABLE `profiles`
-  MODIFY `id` int(255) NOT NULL AUTO_INCREMENT;
-
---
 -- AUTO_INCREMENT dla tabeli `resources`
 --
 ALTER TABLE `resources`
-  MODIFY `id` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT dla tabeli `terrain-types`

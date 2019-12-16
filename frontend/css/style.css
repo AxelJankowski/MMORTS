@@ -60,7 +60,7 @@ body {
 }
 
 .village {
-    background-image: url("../../images/map.jpg");
+    background-image: url("../images/map.jpg");
     width: 60%;
     height: 100%;
     margin: 0 10px;
