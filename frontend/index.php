@@ -48,7 +48,7 @@
                                 die("Connection failed: ".$conn->connect_error);
                             }
 
-                            //user data
+                            //get user data
                             $username = $_SESSION['loggedin'];
 
                             $query = "SELECT id FROM users WHERE username = '$username'";
@@ -57,8 +57,8 @@
 
                             $userId = $row['id'];
 
-                            //city data
-                            $query = "SELECT id, name, resources_id FROM cities WHERE user_id = '$userId'";
+                            //get city data
+                            $query = "SELECT id, name FROM cities WHERE user_id = '$userId'";
                             $result = mysqli_query($conn, $query);
 
                             //check if user has any city
@@ -67,10 +67,9 @@
 
                                 $cityId = $row['id'];
                                 $cityName = $row['name'];
-                                $cityResourcesId = $row['resources_id'];
 
-                                //resources data
-                                $query = "SELECT wood, stone, clay, iternit, food FROM resources WHERE id = '$cityResourcesId'";
+                                //get resources data
+                                $query = "SELECT wood, stone, clay, iternit, food FROM resources WHERE city_id = '$cityId'";
                                 $result = mysqli_query($conn, $query);
                                 $row = mysqli_fetch_assoc($result);
 
@@ -80,7 +79,7 @@
                                 $iternit = $row['iternit'];
                                 $food = $row['food'];
 
-                                //buildings data
+                                //get buildings data
                                 $query = "SELECT keep_level, tavern_level, barracks_level FROM buildings WHERE city_id = '$cityId'";
                                 $result = mysqli_query($conn, $query);
                                 $row = mysqli_fetch_assoc($result);

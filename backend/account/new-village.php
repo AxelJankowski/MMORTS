@@ -15,7 +15,7 @@
         die("Connection failed: ".$conn->connect_error);
     }
 
-    //user data
+    //get user data
     $username = $_SESSION['loggedin'];
 
     $query = "SELECT id FROM users WHERE username = '$username'";
@@ -38,6 +38,7 @@
         $query = "INSERT INTO cities (user_id, name) VALUES ('$userId', '$newCity')";
 
         if($conn->query($query) === true) {
+            //get new city data
             $query = "SELECT id FROM cities WHERE user_id = '$userId'";
             $result = mysqli_query($conn, $query);
             $row = mysqli_fetch_assoc($result);
