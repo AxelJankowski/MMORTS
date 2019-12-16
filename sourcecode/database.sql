@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Czas generowania: 12 Gru 2019, 13:03
+-- Czas generowania: 16 Gru 2019, 16:28
 -- Wersja serwera: 10.4.8-MariaDB
 -- Wersja PHP: 7.3.11
 
@@ -57,7 +57,8 @@ CREATE TABLE `buildings` (
 --
 
 INSERT INTO `buildings` (`id`, `city_id`, `keep_level`, `tavern_level`, `barracks_level`) VALUES
-(1, 1, 1, 1, NULL);
+(1, 1, 1, 1, NULL),
+(2, 2, 1, 1, NULL);
 
 -- --------------------------------------------------------
 
@@ -104,16 +105,16 @@ CREATE TABLE `cities` (
   `user_id` int(255) DEFAULT NULL,
   `name` varchar(20) DEFAULT NULL,
   `resources_id` int(255) DEFAULT NULL,
-  `buildings_id` int(255) DEFAULT NULL,
-  `production_id` int(255) DEFAULT NULL
+  `buildings_id` int(255) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Zrzut danych tabeli `cities`
 --
 
-INSERT INTO `cities` (`id`, `user_id`, `name`, `resources_id`, `buildings_id`, `production_id`) VALUES
-(1, 1, 'Popopołczyno', 1, 1, 1);
+INSERT INTO `cities` (`id`, `user_id`, `name`, `resources_id`, `buildings_id`) VALUES
+(1, 1, 'Popopołczyno', 1, 1),
+(2, 2, 'Test', NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -172,11 +173,11 @@ CREATE TABLE `resources` (
   `id` int(255) NOT NULL,
   `user_id` int(255) NOT NULL,
   `city_id` int(255) NOT NULL,
-  `wood` int(255) NOT NULL,
-  `stone` int(255) NOT NULL,
-  `clay` int(255) NOT NULL,
-  `iternit` int(255) NOT NULL,
-  `food` int(255) NOT NULL
+  `wood` int(255) NOT NULL DEFAULT 200,
+  `stone` int(255) NOT NULL DEFAULT 100,
+  `clay` int(255) NOT NULL DEFAULT 100,
+  `iternit` int(255) NOT NULL DEFAULT 0,
+  `food` int(255) NOT NULL DEFAULT 200
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
@@ -184,7 +185,8 @@ CREATE TABLE `resources` (
 --
 
 INSERT INTO `resources` (`id`, `user_id`, `city_id`, `wood`, `stone`, `clay`, `iternit`, `food`) VALUES
-(1, 1, 1, 200, 100, 100, 0, 200);
+(1, 1, 1, 200, 100, 100, 0, 200),
+(2, 2, 2, 200, 100, 100, 0, 200);
 
 -- --------------------------------------------------------
 
@@ -230,7 +232,7 @@ CREATE TABLE `users` (
 
 INSERT INTO `users` (`id`, `username`, `email`, `password`) VALUES
 (1, 'eSKULLuss', 'eskulluss@gmail.com', '$2y$10$VrSP/ft3bC/PX.UuYMy9VOYbYxv9MViLIYnqRaiUNw4LJQj/a1qa.'),
-(6, 'test', 'test@test.test', '$2y$10$nAancLD.kBxRbENHuSK.Eung.XUksnzR4LThseXWuTPf00g0Jpz9.');
+(2, 'test', 'test@test.test', '$2y$10$nAancLD.kBxRbENHuSK.Eung.XUksnzR4LThseXWuTPf00g0Jpz9.');
 
 --
 -- Indeksy dla zrzutów tabel
@@ -316,13 +318,13 @@ ALTER TABLE `army`
 -- AUTO_INCREMENT dla tabeli `buildings`
 --
 ALTER TABLE `buildings`
-  MODIFY `id` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT dla tabeli `cities`
 --
 ALTER TABLE `cities`
-  MODIFY `id` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT dla tabeli `configuration`
@@ -346,7 +348,7 @@ ALTER TABLE `profiles`
 -- AUTO_INCREMENT dla tabeli `resources`
 --
 ALTER TABLE `resources`
-  MODIFY `id` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT dla tabeli `terrain-types`
