@@ -26,6 +26,8 @@
 
     $newCity = $_POST['new-city'];
 
+    $newCity = htmlentities($newCity, ENT_QUOTES, "UTF-8");
+
     //check if city name is already in use
     $query = "SELECT name FROM cities WHERE name = '$newCity'";
     if($result = mysqli_query($conn, $query)) {

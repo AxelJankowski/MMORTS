@@ -18,6 +18,9 @@
     $username = $_POST['username'];
     $password = $_POST['password'];
 
+    $username = htmlentities($username, ENT_QUOTES, "UTF-8");
+    $password = htmlentities($password, ENT_QUOTES, "UTF-8");
+
     //check if user already exists
     $query = "SELECT password FROM users WHERE username = '$username'";
     $result = mysqli_query($conn, $query);

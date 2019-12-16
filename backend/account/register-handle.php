@@ -17,6 +17,10 @@
     $email = $_POST['email'];
     $password = $_POST['password'];
 
+    $username = htmlentities($username, ENT_QUOTES, "UTF-8");
+    $email = htmlentities($email, ENT_QUOTES, "UTF-8");
+    $password = htmlentities($password, ENT_QUOTES, "UTF-8");
+
     //encrypt password
     $password = password_hash($password, PASSWORD_BCRYPT);
 
