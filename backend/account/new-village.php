@@ -24,7 +24,7 @@
 
     $userId = $row['id'];
 
-    $newCity = mysql_real_escape_string($_POST['new-city']);
+    $newCity = mysqli_real_escape_string($conn, $_POST['new-city']);
 
     $newCity = htmlentities($newCity, ENT_QUOTES, "UTF-8");
 
