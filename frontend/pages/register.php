@@ -28,6 +28,10 @@
                             <label for="password">Password:</label>
                             <input type="password" class="form-control" name="password" required>
                         </div>
+                        <div class="form-group">
+                            <label for="password">Confirm password:</label>
+                            <input type="password" class="form-control" name="cPassword" required>
+                        </div>
                         <button type="submit" class="submit btn btn-default">Submit</button>
                     </form>
                 </div>
