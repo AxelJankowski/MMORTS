@@ -11,6 +11,9 @@
             elseif($page == "tavern") {
                 require_once("frontend/pages/tavern.php");
             }
+            elseif($page == "account") {
+                require_once("frontend/pages/account.php");
+            }
             elseif($page == "login") {
                 require_once("frontend/pages/login.php");
             }
