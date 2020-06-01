@@ -4,6 +4,8 @@
   Online multiplayer strategy game played in a browser
 </p>
 
+![Screenshot of the game](https://github.com/AxelJankowski/MMORTS/blob/master/screenshot.png)
+
 <p align="center">
   Created in the image of games like Tribal Wars and/or Travian. It involves (or will involve) establishing and expanding settlements
   as well as trading and fighting with other players.
